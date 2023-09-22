@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_nfc_kit_example/helpers/colors.dart';
 import 'package:flutter_nfc_kit_example/helpers/error_widget.dart';
 import 'package:flutter_nfc_kit_example/helpers/loaders.dart';
-import 'package:flutter_nfc_kit_example/helpers/page_layout/page_layout.dart';
 import 'package:flutter_nfc_kit_example/helpers/page_layout/text_formating.dart';
 import 'package:flutter_nfc_kit_example/helpers/snakbars.dart';
 import 'package:flutter_nfc_kit_example/helpers/util_helpers.dart';
@@ -22,72 +18,107 @@ class SessionHistory extends StatefulWidget {
 class _SessionHistoryState extends State<SessionHistory> {
   @override
   Widget build(BuildContext context) {
-    return PageLayout(
-      title: "Clock-out",
-      child: FutureBuilder(
-          future: firestore
-              .collection("student-clock-in")
-              .where('status', isEqualTo: true)
-              .where('studentCard', isEqualTo: widget.cardId)
-              .get(),
-          builder: (BuildContext context, AsyncSnapshot snapshot) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return const Center(
-                child: spinnerPry,
-              );
-            }
-            if (snapshot.hasError) {
-              print("${snapshot.error}");
-              return ErrorPageWidget();
-            }
+    return Scaffold(
+      // title: "Clock-out",
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Colors.transparent,
+        title: Text(
+          "Clock-out",
+          style: textStyle(
+            height: 16 / 24,
+            fontSize: 16,
+            fontWeight: FontWeight.w600,
+            color: Color(0xff4d4d4d),
+          ),
+        ),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () => Navigator.pop(context),
+          icon: Icon(
+            Icons.arrow_back_ios,
+            size: 24,
+            color: Color(0xff003366),
+          ),
+        ),
+      ),
+      backgroundColor: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 40),
+        child: FutureBuilder(
+            future: firestore
+                .collection("student-clock-in")
+                .where('status', isEqualTo: true)
+                .where('studentCard', isEqualTo: widget.cardId)
+                .get(),
+            builder: (BuildContext context, AsyncSnapshot snapshot) {
+              if (snapshot.connectionState != ConnectionState.done) {
+                return const Center(
+                  child: spinnerPry,
+                );
+              }
+              if (snapshot.hasError) {
+                print("${snapshot.error}");
+                return ErrorPageWidget();
+              }
 
-            if (snapshot.hasData) {
-              final data = snapshot.data;
-              print("history");
-              print("-==-");
-              print(data.docs);
-              final history = data.docs ?? [];
-              return history.length <= 0
-                  ? Center(
-                      child: Text("No active session available"),
-                    )
-                  : ListView.builder(
-                      padding: EdgeInsets.all(0),
-                      itemCount: history.length,
-                      itemBuilder: (BuildContext context, i) {
-                        final dataa = history[i].data();
-                        return Column(
-                          children: [
-                            ListTile(
-                                // leading: Icon(Icons.book),
-                                tileColor: Color(0xffe8f5e9),
-                                contentPadding: EdgeInsets.all(0),
-                                title: Text("${dataa['studentCard']}"),
-                                trailing: Container(
-                                  width: 100.0,
-                                  color: dangerColor,
-                                  child: TextButton(
-                                    onPressed: () {
-                                      // print(history[i].id);
-                                      action(
-                                        context,
-                                        history[i].id,
-                                      );
-                                    },
-                                    child: Text(
-                                      "Clock-out",
-                                      style: textStyle(color: Colors.white),
+              if (snapshot.hasData) {
+                final data = snapshot.data;
+                print("history");
+                print("-==-");
+                print(data.docs);
+                final history = data.docs ?? [];
+                return history.length <= 0
+                    ? Center(
+                        child: Text("No active session available"),
+                      )
+                    : ListView.builder(
+                        padding: EdgeInsets.all(0),
+                        itemCount: history.length,
+                        itemBuilder: (BuildContext context, i) {
+                          final dataa = history[i].data();
+                          return Column(
+                            children: [
+                              ListTile(
+                                  // leading: Icon(Icons.book),
+                                  // tileColor: Color(0xffe8f5e9),
+                                  contentPadding: EdgeInsets.all(0),
+                                  title: Text("${dataa['studentCard']}"),
+                                  trailing: Container(
+                                    width: 88.0,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xff003366),
+                                      borderRadius: BorderRadius.all(
+                                        Radius.circular(4),
+                                      ),
                                     ),
-                                  ),
-                                )),
-                            const Divider()
-                          ],
-                        );
-                      });
-            }
+                                    child: TextButton(
+                                      onPressed: () {
+                                        // print(history[i].id);
+                                        action(
+                                          context,
+                                          history[i].id,
+                                        );
+                                      },
+                                      child: Text(
+                                        "Clock-out",
+                                        style: textStyle(
+                                          color: Colors.white,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  )),
+                              const Divider()
+                            ],
+                          );
+                        });
+              }
 
-            return Text("");
-          }),
+              return Text("");
+            }),
+      ),
     );
   }
 
