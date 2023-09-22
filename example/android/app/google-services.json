@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "51637724126",
+    "project_id": "nfcauth-c5bc2",
+    "storage_bucket": "nfcauth-c5bc2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51637724126:android:3e7e43183538c2c037f34f",
+        "android_client_info": {
+          "package_name": "com.android.veegil"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPUU3EVMPEuBSpR-xOryJxmY5pl2v3-90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51637724126-fnhnl77on5ku2id0olqapaiq5hrs1jn7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ios.veegil"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51637724126:android:9d996c77dc0e87c737f34f",
+        "android_client_info": {
+          "package_name": "com.android.yctnfc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPUU3EVMPEuBSpR-xOryJxmY5pl2v3-90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51637724126-fnhnl77on5ku2id0olqapaiq5hrs1jn7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ios.veegil"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51637724126:android:b69a07881d636a2837f34f",
+        "android_client_info": {
+          "package_name": "im.nfc.flutter_nfc_kit_example"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPUU3EVMPEuBSpR-xOryJxmY5pl2v3-90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "51637724126-2euqh2j00lnevlg61obfcuuqfaeel664.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "51637724126-fnhnl77on5ku2id0olqapaiq5hrs1jn7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.ios.veegil"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
